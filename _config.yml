@@ -16,9 +16,11 @@ fancybox: true
 # Sidebar
 sidebar: right
 widgets:
-#	- category
+	- category
 	- recent_posts
-	- links
+	- tag
+	- tagcloud
+#	- links
 	- ukagaka
 
 # Miscellaneous
