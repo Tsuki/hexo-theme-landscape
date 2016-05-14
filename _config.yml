@@ -24,16 +24,16 @@ widgets:
 	- ukagaka
 
 # Miscellaneous
-google_analytics:
-favicon: /f.ico
-twitter:
-google_plus: 108158678174364359204
-fb_admins:
-fb_app_id:
+google_analytics: UA-77760032-1
+#favicon: /f.ico
+#twitter:
+#google_plus: 108158678174364359204
+#fb_admins:
+#fb_app_id:
 
 # Google sitemap
 google_siteVerification:
-  id: Mm-RImHoFL55JJD4QfTDueXEEdbb8XRHhRWmU4fwAqc
+  id: t2O2EjBohDKVx7CnlLKRymUgj_2_47RaJjbZwCj9Bj0
 
 # Toc
 toc:
