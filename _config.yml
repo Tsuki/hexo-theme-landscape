@@ -4,7 +4,7 @@ menu:
   - {name: About, path: /about, class: icon-user, layout: 2}
   - {name: Archives, path: /archives, class: icon-archive, layout: 2}
   - {name: Tags, path: /tags, class: icon-tags, layout: 2}
-  - {name: Pictures, path: /picture, class: icon-camera, layout: 2}
+#  - {name: Pictures, path: /picture, class: icon-camera, layout: 2}
   - {name: Works, path: /works, class: icon-trophy, layout: 2}
 
 rss: /atom.xml
@@ -16,7 +16,7 @@ fancybox: true
 # Sidebar
 sidebar: right
 widgets:
-	- category
+#	- category
 	- recent_posts
 	- links
 	- ukagaka
@@ -31,7 +31,7 @@ fb_app_id:
 
 # Google sitemap
 google_siteVerification:
-  id: 5mRgj8NanEMpGZuNfHNJNmH90RgNlrnJXsFlTaKD6Gs
+  id: Mm-RImHoFL55JJD4QfTDueXEEdbb8XRHhRWmU4fwAqc
 
 # Toc
 toc:
@@ -39,8 +39,8 @@ toc:
   aside: false     ## show contents in aside.
 
 ## social
-facebook_url: https://www.facebook.com/Morris1028
-github_url: https://github.com/morris821028
-google_plus_url: https://plus.google.com/u/0/108158678174364359204
-uhunt_url: http://uhunt.felix-halim.net/id/46705
+#facebook_url: https://www.facebook.com/Morris1028
+github_url: https://github.com/Tsuki
+#google_plus_url: https://plus.google.com/u/0/108158678174364359204
+#uhunt_url: http://uhunt.felix-halim.net/id/46705
 
