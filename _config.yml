@@ -47,3 +47,11 @@ github_url: https://github.com/Tsuki
 #google_plus_url: https://plus.google.com/u/0/108158678174364359204
 #uhunt_url: http://uhunt.felix-halim.net/id/46705
 
+sitemap:
+  path: sitemap.xml
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
