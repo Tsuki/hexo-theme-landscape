@@ -70,6 +70,18 @@
   ul, ol, dl
     margin-top: line-height
     margin-bottom: line-height
+  li
+    ul,ol
+      margin-left: 30px
+      li:before
+        content: ""
+        background: #dedede
+  li.task-list 
+    list-style: none
+    &::before
+      display: none
+  li:hover
+        background rgba(158,188,226,0.21)
   img, video
     max-width: 100%
     height: auto
