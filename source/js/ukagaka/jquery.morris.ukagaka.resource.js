@@ -445,11 +445,11 @@
     $.ukagaka.defaults = {
         jsonPath: '/js/ukagaka/assets/chiyo/chiyo.model.json',
         modelConfig: null,
-        googleKey: '0ArRwmWo93u-mdG93a2dkSWxIbHEzZjRIeDdxZXdsU1E',
-        googleFormkey: '1xADUIiBq1ksH7lxwSch1Nz_p2gSxdJttmv5OJOxJye0',
-        googleSheet: "od6",
-        googleSheetField: "entry.2030600456",
-        talkTime: 60000
+        googleKey: '1nQG5d6f2zAQ3IALq6CizgEO49KrvYgbAk9fq8W1xY0o',
+        googleFormkey: '1rYguKmmUaexrvfdmI_adKiukGy0O6DqfndPvUzOxu1M',
+        googleSheet: "default",
+        googleSheetField: "entry.688947133",
+        talkTime: 10000 
     };
 
     $.ukagaka.talking = [];

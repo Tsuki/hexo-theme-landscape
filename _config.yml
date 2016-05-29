@@ -20,8 +20,8 @@ widgets:
 	- recent_posts
 	- tag
 	- tagcloud
-#	- links
-#	- recent_comment
+	- links
+	# - recent_comment
 	- ukagaka
 
 # Miscellaneous
