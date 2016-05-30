@@ -14,7 +14,15 @@
       callback && callback();
     }, searchAnimDuration);
   };
-
+  var setTagsColor = function(){
+    var tags = $(".article-tag-list-item a");
+    for(var i = 0; i < tags.length; i++){
+      var num = Math.floor(Math.random()*7);
+      tags.eq(i).addClass("color" + num);
+    }
+    $(".article-category a:nth-child(-n+2)").attr("class", "color0");
+  };
+  setTagsColor();
   $('#nav-search-btn').on('click', function() {
     if (isSearchAnim) return;
 
@@ -119,7 +127,7 @@
     setTimeout(function() {
       isMobileNavAnim = false;
     }, mobileNavAnimDuration);
-  }
+  };
 
   $('#main-nav-toggle').on('click', function() {
     if (isMobileNavAnim) return;
@@ -188,7 +196,7 @@
             var re = new RegExp(str);
             return this.field.match(re);
         }
-    }
+    };
 
     var string = ["[ ]", ["[x]", "checked"]];
     var checked = taskList.check(string[1][0]);
