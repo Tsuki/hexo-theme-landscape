@@ -1,8 +1,16 @@
 <% if (site.tags.length){ %>
-  <div class="widget-wrap">
+<div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <%- tagcloud({'amount': '1024', 'orderby': 'name', 'order': '1'}) %>
+        <%- tagcloud({
+            'amount': '1024',
+            'orderby': 'name',
+            'order': '1',
+            'min_font': 14,
+            'max_font': 14,
+            'start_color': 'white',
+            'endColor': 'white'
+        }) %>
     </div>
-  </div>
+</div>
 <% } %>

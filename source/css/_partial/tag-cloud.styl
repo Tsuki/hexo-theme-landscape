@@ -1,0 +1,47 @@
+.tagcloud
+  a
+    display inline-block
+    text-decoration none
+    font-weight normal
+    font-size .75rem
+    height 1.125rem
+    line-height 1.125rem
+    //float left
+    padding 0 5px 0 10px
+    position relative
+    border-radius 0 5px 5px 0
+    margin 5px 9px 5px 8px
+    opacity 0.9
+    for color, i in color-list
+      &.color{i}
+        background color
+        color white
+        &::before
+          border-right-color color
+    &:hover
+      opacity 1
+      transform scale(1.06)
+      background-color hover-color
+      border-color hover-color
+      &::before
+        border-right-color hover-color
+    &:before
+      content "\A"
+      width 0
+      height 0
+      position absolute
+      top 0
+      left -1.1rem
+      border .5625rem solid transparent
+    &:after
+      content "\A"
+      width 4px
+      height 4px
+      background-color #fff
+      border-radius 4px
+      box-shadow 0 0 0 1px rgba(0, 0, 0, .3)
+      position absolute
+      top .4375rem
+      left 2px
+  a
+    margin-right: 5px

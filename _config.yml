@@ -18,10 +18,10 @@ sidebar: right
 widgets:
 	- category
 	- recent_posts
-	- tag
+#	- tag
 	- tagcloud
 	- links
-	# - recent_comment
+#	 - recent_comment
 	- ukagaka
 
 # Miscellaneous
@@ -55,3 +55,6 @@ feed:
   path: atom.xml
   limit: 20
   hub:
+
+friends:
+  梦路: https://blog.ikke.moe/

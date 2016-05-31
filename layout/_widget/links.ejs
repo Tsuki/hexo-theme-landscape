@@ -1,8 +1,12 @@
 <div class="widget-wrap">
     <h3 class="widget-title">Links</h3>
-    <div class="widget">   
-      	<ul>
-	      <li><a href="https://blog.ikke.moe/" title=""><i class="icon-github-alt"></i> 梦路 Blog</a></li>
-    	</ul>
+    <div class="widget">
+        <% if(theme.friends && theme.friends.length != 0){ %>
+        <ul>
+            <% for (var i in theme.friends){ %>
+            <li><a href="<%- url_for(theme.friends[i]) %>" title=""><i class="icon-github-alt"></i> <%= i %></a></li>
+            <% } %>
+        </ul>
+        <% } %>
     </div>
 </div>

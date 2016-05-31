@@ -15,7 +15,7 @@
     }, searchAnimDuration);
   };
   var setTagsColor = function(){
-    var tags = $(".article-tag-list-item a");
+    var tags = $(".tagcloud a");
     for(var i = 0; i < tags.length; i++){
       var num = Math.floor(Math.random()*7);
       tags.eq(i).addClass("color" + num);
