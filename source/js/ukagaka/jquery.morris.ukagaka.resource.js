@@ -11,24 +11,24 @@
             this.each(function() {
                 new $.ukagaka(this, options, arg);
             });
-            return;
         }
     });
 
     var MediaPlayer = function() {
         var that = {};
         that.toggle = function() {
-            $("#playblock").toggle('blind', null, 0);
-        }
+            // $("#playblock").toggle('blind', null, 0);
+            $("#playblock").toggle();
+        };
         that.html = function() {
             return '<div id="playblock"><div id="player"><div class="ctrl"><div class="tag"><strong>Title</strong><span class="artist">Artist</span><span class="album">Album</span></div><div class="control"><i class="icon-backward"></i><i class="icon-play"></i><i class="icon-forward"></i><span class="progress"><i class="icon-repeat repeat"></i><i class="icon-random"></i></span><span class="volume"><i class="icon-volume-up"></i><div class="slider"><div class="pace"></div></div></span></div><div class="progress"><div class="slider"><div class="loaded"></div><div class="pace"></div></div><div class="timer right">0:00</div></div></div></div></div>';
-        }
+        };
         that.deploy = function(playlist_json) {
             var player = $('#playblock');
             var repeat = localStorage.repeat || 0,
                 shuffle = localStorage.shuffle || 'false',
                 continous = true,
-                autoplay = false,
+                autoplay = true,
                 track = 0,
                 playlist = playlist_json;
 
@@ -42,14 +42,14 @@
                 player.find('.icon-play').addClass('icon-pause');
                 timeout = setInterval(updateProgress, 500);
                 isPlaying = true;
-            }
+            };
 
             var pause = function() {
                 audio.pause();
                 player.find('.icon-play').removeClass('icon-pause');
                 clearInterval(updateProgress);
                 isPlaying = false;
-            }
+            };
 
             // Update progress
             var setProgress = function(value) {
@@ -59,11 +59,11 @@
                 player.find('.timer').html(parseInt(value / 60) + ':' + currentSec);
                 player.find('.progress .pace').css('width', ratio + '%');
                 player.find('.progress .slider a').css('left', ratio + '%');
-            }
+            };
 
             var updateProgress = function() {
                 setProgress(audio.currentTime);
-            }
+            };
 
             // Progress slider
             player.find('.progress .slider').slider({
@@ -85,7 +85,7 @@
                 audio.volume = localStorage.volume = value;
                 player.find('.volume .pace').css('width', value * 100 + '%');
                 player.find('.volume .slider a').css('left', value * 100 + '%');
-            }
+            };
 
             var volume = localStorage.volume || 0.5;
             player.find('.volume .slider').slider({
@@ -126,7 +126,7 @@
                 $('audio').remove();
                 loadMusic(track);
                 if (isPlaying == true) play();
-            }
+            };
 
             // Shuffle
             var shufflePlay = function() {
@@ -135,7 +135,7 @@
                 currentTrack = time.getTime() % playlist.length;
                 if (lastTrack == currentTrack)++currentTrack;
                 switchTrack(currentTrack);
-            }
+            };
 
             // Fire when track ended
             var ended = function() {
@@ -156,17 +156,17 @@
                         }
                     }
                 }
-            }
+            };
 
             var beforeLoad = function() {
                 var endVal = this.seekable && this.seekable.length ? this.seekable.end(0) : 0;
                 player.find('.progress .loaded').css('width', (100 / (this.duration || 1) * endVal) + '%');
-            }
+            };
 
             // Fire when track loaded completely
             var afterLoad = function() {
                 if (autoplay == true) play();
-            }
+            };
 
             // Load track
             var loadMusic = function(i) {
@@ -180,7 +180,7 @@
                 audio.addEventListener('durationchange', beforeLoad, false);
                 audio.addEventListener('canplay', afterLoad, false);
                 audio.addEventListener('ended', ended, false);
-            }
+            };
 
             loadMusic(currentTrack);
             player.find('.icon-play').on('click', function() {
@@ -234,9 +234,9 @@
                     $(this).addClass('enable');
                 }
             });
-        }
+        };
         return that;
-    }
+    };
 
     $.ukagaka = function(elem, options, arg) {
         $.getJSON(options.jsonPath, function(json) {
@@ -315,7 +315,7 @@
             actionSetting(options, elem);
 
             $.ukagaka.mp3player.deploy(options.modelConfig.playlist);
-            $.ukagaka.mp3player.toggle();
+            // $.ukagaka.mp3player.toggle();
         }
         /*
             loadTalk(options)

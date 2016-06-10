@@ -1,48 +1,39 @@
-(function($) {
+(function ($) {
   // Search
   var $searchWrap = $('#search-form-wrap'),
     isSearchAnim = false,
     searchAnimDuration = 200;
 
-  var startSearchAnim = function() {
+  var startSearchAnim = function () {
     isSearchAnim = true;
   };
 
-  var stopSearchAnim = function(callback) {
-    setTimeout(function() {
+  var stopSearchAnim = function (callback) {
+    setTimeout(function () {
       isSearchAnim = false;
       callback && callback();
     }, searchAnimDuration);
   };
-  var setTagsColor = function(){
-    var tags = $(".tagcloud a");
-    for(var i = 0; i < tags.length; i++){
-      var num = Math.floor(Math.random()*7);
-      tags.eq(i).addClass("color" + num);
-    }
-    $(".article-category a:nth-child(-n+2)").attr("class", "color0");
-  };
-  setTagsColor();
-  $('#nav-search-btn').on('click', function() {
+  $('#nav-search-btn').on('click', function () {
     if (isSearchAnim) return;
 
     startSearchAnim();
     $searchWrap.addClass('on');
-    stopSearchAnim(function() {
+    stopSearchAnim(function () {
       $('.search-form-input').focus();
     });
   });
 
-  $('.search-form-input').on('blur', function() {
+  $('.search-form-input').on('blur', function () {
     startSearchAnim();
     $searchWrap.removeClass('on');
     stopSearchAnim();
   });
 
   // Share
-  $('body').on('click', function() {
+  $('body').on('click', function () {
     $('.article-share-box.on').removeClass('on');
-  }).on('click', '.article-share-link', function(e) {
+  }).on('click', '.article-share-link', function (e) {
     e.stopPropagation();
 
     var $this = $(this),
@@ -82,11 +73,11 @@
       top: offset.top + 25,
       left: offset.left
     }).addClass('on');
-  }).on('click', '.article-share-box', function(e) {
+  }).on('click', '.article-share-box', function (e) {
     e.stopPropagation();
-  }).on('click', '.article-share-box-input', function() {
+  }).on('click', '.article-share-box-input', function () {
     $(this).select();
-  }).on('click', '.article-share-box-link', function(e) {
+  }).on('click', '.article-share-box-link', function (e) {
     e.preventDefault();
     e.stopPropagation();
 
@@ -94,8 +85,8 @@
   });
 
   // Caption
-  $('.article-entry').each(function(i) {
-    $(this).find('img').each(function() {
+  $('.article-entry').each(function (i) {
+    $(this).find('img').each(function () {
       if ($(this).parent().hasClass('fancybox')) return;
 
       var alt = this.alt;
@@ -105,7 +96,7 @@
       $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
     });
 
-    $(this).find('.fancybox').each(function() {
+    $(this).find('.fancybox').each(function () {
       $(this).attr('rel', 'article' + i);
     });
   });
@@ -119,17 +110,17 @@
     isMobileNavAnim = false,
     mobileNavAnimDuration = 200;
 
-  var startMobileNavAnim = function() {
+  var startMobileNavAnim = function () {
     isMobileNavAnim = true;
   };
 
-  var stopMobileNavAnim = function() {
-    setTimeout(function() {
+  var stopMobileNavAnim = function () {
+    setTimeout(function () {
       isMobileNavAnim = false;
     }, mobileNavAnimDuration);
   };
 
-  $('#main-nav-toggle').on('click', function() {
+  $('#main-nav-toggle').on('click', function () {
     if (isMobileNavAnim) return;
 
     startMobileNavAnim();
@@ -137,13 +128,13 @@
     stopMobileNavAnim();
   });
 
-  $('#wrap').on('click', function() {
+  $('#wrap').on('click', function () {
     if (isMobileNavAnim || !$container.hasClass('mobile-nav-on')) return;
 
     $container.removeClass('mobile-nav-on');
   });
 
-  $(".toggle-input a").on('click', function() {
+  $(".toggle-input a").on('click', function () {
     var content = $(this).parent().prev(".toggle-content");
     if (!content.css("max-height") || content.css("max-height") == "250px") {
       content.css("max-height", "99999px");
@@ -155,11 +146,9 @@
   });
 
 // image lazy load
-  $("div.lazy").lazyload({
-  });
+  $("div.lazy").lazyload({});
 
-  $("img.lazy").lazyload({
-  });
+  $("img.lazy").lazyload({});
 
   $(".als-container").als({
     visible_items: 1,
@@ -170,32 +159,29 @@
     start_from: 0
   });
 
-  $(".als-container").on('click', ".als-next", function() {
-      var timeout = setTimeout(function() {
-        $("div.lazy").lazyload({
-        });
-      }, 2000);
+  $(".als-container").on('click', ".als-next", function () {
+    var timeout = setTimeout(function () {
+      $("div.lazy").lazyload({});
+    }, 2000);
   });
-  $(".als-container").on('click', ".als-prev", function(){
-      var timeout = setTimeout(function() {
-        $("div.lazy").lazyload({
-        });
-      }, 2000);
+  $(".als-container").on('click', ".als-prev", function () {
+    var timeout = setTimeout(function () {
+      $("div.lazy").lazyload({});
+    }, 2000);
   });
-  $(".als-container").on('click', "[data-linkBtn]", function(){
-      var timeout = setTimeout(function() {
-        $("div.lazy").lazyload({
-        });
-      }, 2000);
+  $(".als-container").on('click', "[data-linkBtn]", function () {
+    var timeout = setTimeout(function () {
+      $("div.lazy").lazyload({});
+    }, 2000);
   });
 
-  $('ul > li').each(function() {
+  $('ul > li').each(function () {
     var taskList = {
-        field: this.textContent.substring(0, 2),
-        check: function(str) {
-            var re = new RegExp(str);
-            return this.field.match(re);
-        }
+      field: this.textContent.substring(0, 2),
+      check: function (str) {
+        var re = new RegExp(str);
+        return this.field.match(re);
+      }
     };
 
     var string = ["[ ]", ["[x]", "checked"]];
@@ -204,21 +190,20 @@
 
     var $current = $(this);
     function update(str, check) {
-        var click = ["disabled", ""];
-        $current.html($current.html().replace(
-          str, "<input type='checkbox' " + check + " " + click[1] + " >")
-        )
+      var click = ["disabled", ""];
+      $current.html($current.html().replace(
+        str, "<input type='checkbox' " + check + " " + click[1] + " >")
+      )
     }
 
     if (checked || unchecked) {
-        this.classList.add("task-list");
-        if (checked) {
-            update(string[1][0], string[1][1]);
-            this.classList.add("check");
-        } else {
-            update(string[0], "");
-        }
+      this.classList.add("task-list");
+      if (checked) {
+        update(string[1][0], string[1][1]);
+        this.classList.add("check");
+      } else {
+        update(string[0], "");
+      }
     }
-})
-
+  });
 })(jQuery);
