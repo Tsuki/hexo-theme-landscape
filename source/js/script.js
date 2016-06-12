@@ -189,6 +189,7 @@
     var unchecked = taskList.check(string[0]);
 
     var $current = $(this);
+
     function update(str, check) {
       var click = ["disabled", ""];
       $current.html($current.html().replace(
@@ -206,4 +207,13 @@
       }
     }
   });
+  var setTagsColor = function () {
+    var tags = $(".tagcloud a").not("[class*=color]");
+    for (var i = 0; i < tags.length; i++) {
+      var num = Math.floor(Math.random() * 7);
+      tags.eq(i).addClass("color" + num);
+    }
+    $(".article-category a:nth-child(-n+2)").attr("class", "color0");
+  };
+  setTagsColor();
 })(jQuery);

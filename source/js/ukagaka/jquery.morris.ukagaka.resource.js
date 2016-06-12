@@ -315,7 +315,7 @@
             actionSetting(options, elem);
 
             $.ukagaka.mp3player.deploy(options.modelConfig.playlist);
-            // $.ukagaka.mp3player.toggle();
+            $.ukagaka.mp3player.toggle();
         }
         /*
             loadTalk(options)
