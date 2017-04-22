@@ -2,7 +2,7 @@
     "use strict";
     $.fn.extend({
         ukagaka: function(options, arg) {
-            if (options && typeof(options) == 'object') {
+            if (options && typeof(options) === 'object') {
                 options = $.extend({}, $.ukagaka.defaults, options);
             } else {
                 options = $.extend($.ukagaka.defaults, options);
@@ -28,7 +28,7 @@
             var repeat = localStorage.repeat || 0,
                 shuffle = localStorage.shuffle || 'false',
                 continous = true,
-                autoplay = true,
+                autoplay = false,
                 track = 0,
                 playlist = playlist_json;
 
@@ -125,7 +125,7 @@
 
                 $('audio').remove();
                 loadMusic(track);
-                if (isPlaying == true) play();
+                if (isPlaying === true) play();
             };
 
             // Shuffle
@@ -133,7 +133,7 @@
                 var time = new Date(),
                     lastTrack = currentTrack;
                 currentTrack = time.getTime() % playlist.length;
-                if (lastTrack == currentTrack)++currentTrack;
+                if (lastTrack === currentTrack)++currentTrack;
                 switchTrack(currentTrack);
             };
 
@@ -142,14 +142,14 @@
                 pause();
                 audio.currentTime = 0;
                 playCounts++;
-                if (continous == true) isPlaying = true;
-                if (repeat == 1) {
+                if (continous === true) isPlaying = true;
+                if (repeat === 1) {
                     play();
                 } else {
                     if (shuffle === 'true') {
                         shufflePlay();
                     } else {
-                        if (repeat == 2) {
+                        if (repeat === 2) {
                             switchTrack(++currentTrack);
                         } else {
                             if (currentTrack < playlist.length) switchTrack(++currentTrack);
@@ -165,7 +165,7 @@
 
             // Fire when track loaded completely
             var afterLoad = function() {
-                if (autoplay == true) play();
+                if (autoplay === true) play();
             };
 
             // Load track
@@ -206,9 +206,9 @@
             });
 
             if (shuffle === 'true') player.find('.icon-random').addClass('enable');
-            if (repeat == 1) {
+            if (repeat === 1) {
                 player.find('.repeat').addClass('once');
-            } else if (repeat == 2) {
+            } else if (repeat === 2) {
                 player.find('.repeat').addClass('all');
             }
 
@@ -241,8 +241,8 @@
     $.ukagaka = function(elem, options, arg) {
         $.getJSON(options.jsonPath, function(json) {
             options.modelConfig = json;
-            if (options && typeof(options) == 'string') {
-                if (options == 'loadTalk')
+            if (options && typeof(options) === 'string') {
+                if (options === 'loadTalk')
                     loadTalk(options);
                 return;
             } else {
@@ -337,10 +337,10 @@
         }
 
         function isXSSsafe(text) {
-            return text.length >= 1 && text.indexOf('script') == -1 && text.indexOf('body') == -1 &&
-                text.indexOf('style') == -1 && text.indexOf('link') == -1 && text.indexOf('iframe') == -1 && 
-                text.indexOf('head') == -1 && text.indexOf('nav') == -1 && text.indexOf('object') == -1 && 
-                text.indexOf('embed') == -1 && text.indexOf('>') == -1 && text.indexOf('>') == -1;
+            return text.length >= 1 && text.indexOf('script') === -1 && text.indexOf('body') === -1 &&
+                text.indexOf('style') === -1 && text.indexOf('link') === -1 && text.indexOf('iframe') === -1 &&
+                text.indexOf('head') === -1 && text.indexOf('nav') === -1 && text.indexOf('object') === -1 &&
+                text.indexOf('embed') === -1 && text.indexOf('>') === -1 && text.indexOf('>') === -1;
         }
 
         function sendLearnText(options) {
@@ -365,7 +365,7 @@
 
         function typed(text) {
             setInterval(function() {
-                if ($.ukagaka.nowText == $.ukagaka.nextText)
+                if ($.ukagaka.nowText === $.ukagaka.nextText)
                     return;
                 $("#ukagaka_msgbox").typed('reset');
                 $.ukagaka.nowText = $.ukagaka.nextText;
@@ -396,7 +396,7 @@
                     var talk_timer = setInterval(talkingbox, opt.talkTime);
 
                     function talkingbox() {
-                        if ($("#ukagaka_msgbox").css("display") != 'none' && $.ukagaka.talkValid == true) {
+                        if ($("#ukagaka_msgbox").css("display") !== 'none' && $.ukagaka.talkValid === true) {
                             showText($.ukagaka.talking[Math.floor(Math.random() * $.ukagaka.talking.length)]);
                         }
                     }

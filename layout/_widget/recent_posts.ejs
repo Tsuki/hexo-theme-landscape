@@ -2,7 +2,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
-      <!--<ul>-->
+      <ul>
         <% site.posts.sort('date', -1).limit(10).each(function(post){ %>
           <li>
             <a class="text" href="<%- url_for(post.path) %>">
@@ -14,7 +14,7 @@
             <%= post.title || '(no title)' %></a>
           </li>
         <% }) %>
-      <!--</ul>-->
+      </ul>
     </div>
   </div>
 <% } %>
