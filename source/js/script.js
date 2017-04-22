@@ -181,7 +181,7 @@
       var num = Math.floor(Math.random() * 7);
       tags.eq(i).addClass("color" + num);
     }
-    $(".article-category a:nth-child(-n+2)").attr("class", "color0");
+    // $(".article-category a:nth-child(-n+2)").attr("class", "color0");
   };
   setTagsColor();
 })(jQuery);
